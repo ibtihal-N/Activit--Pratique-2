@@ -60,7 +60,7 @@ public class PatientApplication implements CommandLineRunner {
         });
 
 
-        patientRepository.save(
+      /*  patientRepository.save(
                 new Patient(null,"Ibtihal",new Date(),Math.random()>0.5?true:false,(int)(Math.random()*100)));
         patientRepository.save(
                 new Patient(null,"meryem",new Date(),Math.random()>0.5?true:false,(int)(Math.random()*100)));
@@ -87,21 +87,19 @@ public class PatientApplication implements CommandLineRunner {
         patient.setNom("Ilyas");
         patientRepository.save(patient);
         //Supprimer un patient
-        patientRepository.deleteById(3L);
-        /*for(int i = 0; i<50; i++){
+        patientRepository.deleteById(3L);*/
+        for(int i = 0; i<50; i++){
             patientRepository.save(
                     new Patient(null,"Ibtihal",new Date(),Math.random()>0.5?true:false,(int)(Math.random()*100)));
         }
-
         Page<Patient> patients = patientRepository.findAll(PageRequest.of(1,10));
         System.out.println("total pages : "+patients.getTotalPages());
         System.out.println("Total element :"+patients.getTotalElements());
         System.out.println("Num Page :"+patients.getNumber());
         List<Patient> content = patients.getContent();
         Page<Patient> byMalade = patientRepository.findByMalade(true,PageRequest.of(0,5));
-
-        List<Patient> patientList=patientRepository.chercherPatients("%I%",60);
-        patientList.forEach((p->{
+        //List<Patient> patientList=patientRepository.chercherPatients("%I%",60);
+        byMalade.forEach((p->{
             System.out.println("================================================");
             System.out.println(p.getId());
             System.out.println(p.getNom());
@@ -117,7 +115,7 @@ public class PatientApplication implements CommandLineRunner {
         }
         patient.setScore(870);
         patientRepository.save(patient);
-        patientRepository.deleteById(1L);*/
+        patientRepository.deleteById(1L);
 
     }
 }
