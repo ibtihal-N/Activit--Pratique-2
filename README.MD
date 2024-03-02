@@ -13,3 +13,4 @@
 <img src="captures/img5.png">
 <h4>7. Migrer de H2 Database vers MySQL</h4>
 <img src="captures/img6.png">
+<img src="captures/img7.png">
